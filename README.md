@@ -18,7 +18,9 @@ Detta är en statisk inbjudan: koden finns i JavaScript-källan och klockan anv�
 
 ## Anmälan
 
-Namnfältet och formulärets utseende är på plats. Inskickning är tills vidare inaktiverad och märkt ”Anmälan öppnar snart.” i väntan på värdens val av e-postmottagare eller formulärtjänst. Inga namn lagras eller skickas. GitHub Pages har ingen egen formulärbackend.
+Målarket är [en hemlig förfest](https://docs.google.com/spreadsheets/d/12M7fqcwc9KDa0ejhe7au5bBCMhhylnO9cRSxXlxcRLU/edit), fliken `Sheet1`, kolumn A (`Namn`). Apps Script-formuläret skriver enbart namn, en rad per inskickning. Arket behöver inte delas offentligt.
+
+Koden är förberedd i `google-apps-script/Code.gs`. Inskickning är fortfarande inaktiverad tills värden har publicerat Google-webbappen och dess `/exec`-adress har lagts in i `rsvp-config.js`. Se [aktiveringsstegen](google-apps-script/SETUP.md). Google-publicering och verklig inskickning till arket är ännu inte verifierade.
 
 ## Form
 
