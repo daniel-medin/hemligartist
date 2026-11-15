@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//En hemlig forfest//Inbjudan//SV
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:hemlig-forfest-20261121@daniel-medin.github.io
+DTSTAMP:20261115T120000Z
+DTSTART:20261121T140000Z
+SUMMARY:En hemlig förfest
+LOCATION:Stenkolsgatan 1b
+DESCRIPTION:Portkoden släpps kl. 15.00 svensk tid på inbjudningssidan.
+URL:https://daniel-medin.github.io/hemligartist/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111110">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Du är bjuden på en hemlig förfest. 21 november 2026, kl. 15.00 på Stenkolsgatan 1b. Portkoden släpps när det börjar.">
+    <meta property="og:title" content="En hemlig förfest · 21.11.2026">
+    <meta property="og:description" content="Stenkolsgatan 1b. Kl. 15.00. Du är bjuden. Portkoden? Den kommer.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="sv_SE">
+    <meta property="og:url" content="https://daniel-medin.github.io/hemligartist/">
+    <meta property="og:image" content="https://daniel-medin.github.io/hemligartist/assets/social.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <title>En hemlig förfest · 21 november 2026</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="preload" href="assets/changa-one.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" type="module"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#inbjudan">Till inbjudan</a>
+    <div class="poster">
+      <header class="masthead">
+        <a class="wordmark" href="#inbjudan" aria-label="En hemlig förfest, till inbjudan">EHF<span class="asterisk" aria-hidden="true">✳</span></a>
+        <span class="masthead-note">ENDAST FÖR INBJUDNA</span>
+        <span class="issue">21 / 11 / 26</span>
+      </header>
+
+      <main id="inbjudan">
+        <section class="hero" aria-labelledby="title">
+          <div class="emblem">
+            <div class="emblem-grid" aria-hidden="true"></div>
+            <img class="logo" src="assets/logo.svg" alt="En hemlig förfest – ett frågetecken omgivet av stora, runda bokstäver" width="620" height="620" fetchpriority="high">
+            <span class="emblem-caption">INGEN VET HUR KVÄLLEN SLUTAR.</span>
+          </div>
+          <div class="invitation">
+            <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> DU FINNS PÅ LISTAN.</p>
+            <h1 id="title">EN HEMLIG<br><span>FÖRFEST.</span></h1>
+            <p class="intro">Alla bra kvällar börjar någonstans.<br>Den här börjar bakom en kodad dörr.</p>
+            <dl class="event-details">
+              <div><dt>NÄR</dt><dd><time datetime="2026-11-21T15:00:00+01:00">Lördag 21 november 2026<br><span>Kl. 15.00</span></time></dd></div>
+              <div><dt>VAR</dt><dd>Stenkolsgatan 1b<br><a href="https://www.google.com/maps/search/?api=1&amp;query=Stenkolsgatan%201b" target="_blank" rel="noopener noreferrer">Hitta till dörren <span aria-hidden="true">↗</span><span class="sr-only"> (öppnas i ny flik)</span></a></dd></div>
+            </dl>
+            <p class="bring-your-own">Ta med egen sprit.</p>
+            <a class="calendar-link" href="forfest.ics" download>Lägg kvällen i kalendern <span aria-hidden="true">↗</span></a>
+          </div>
+        </section>
+
+        <section class="door" aria-labelledby="door-title">
+          <div class="door-heading">
+            <div>
+              <p class="eyebrow">NÄSTA HEMLIGHET</p>
+              <h2 id="door-title">PORTKODEN SLÄPPS OM</h2>
+            </div>
+            <span class="locked-label" id="door-status"><span aria-hidden="true">●</span> LÅST TILLS 15.00</span>
+          </div>
+          <div class="countdown" id="countdown" role="timer" aria-label="Tid kvar tills portkoden släpps">
+            <div class="time-unit"><span id="days">--</span><span class="time-label">DAGAR</span></div>
+            <span class="colon" aria-hidden="true">:</span>
+            <div class="time-unit"><span id="hours">--</span><span class="time-label">TIMMAR</span></div>
+            <span class="colon" aria-hidden="true">:</span>
+            <div class="time-unit"><span id="minutes">--</span><span class="time-label">MINUTER</span></div>
+            <span class="colon" aria-hidden="true">:</span>
+            <div class="time-unit"><span id="seconds">--</span><span class="time-label">SEKUNDER</span></div>
+          </div>
+          <div class="reveal" id="reveal" hidden>
+            <p class="code" id="door-code" aria-label="Portkod"></p>
+            <p>Slå in koden. Kom in. Nu börjar vi.</p>
+          </div>
+          <p class="door-note" id="door-note">21 november · 15.00 · svensk tid. <span>Kom tillbaka hit när det är dags.</span></p>
+          <p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+          <noscript><p class="no-script">Aktivera JavaScript för att se nedräkningen och portkoden när den släpps.</p></noscript>
+        </section>
+
+        <section class="rsvp" aria-labelledby="rsvp-title">
+          <div class="rsvp-intro"><p class="eyebrow">DU + VI = FÖRFEST</p><h2 id="rsvp-title">ANMÄL DIG HÄR.</h2></div>
+          <form id="rsvp-form" aria-describedby="form-note">
+            <div class="name-field"><label for="guest-name">Namn</label><input id="guest-name" name="name" type="text" autocomplete="name" placeholder="Ditt namn" required maxlength="80"></div>
+            <button type="submit" disabled>Jag kommer <span aria-hidden="true">↗</span></button>
+            <p class="form-note" id="form-note" role="status">Anmälan öppnar snart.</p>
+          </form>
+        </section>
+
+        <section class="afterparty" aria-labelledby="afterparty-title">
+          <span class="afterparty-symbol" aria-hidden="true">↗</span>
+          <div><p class="eyebrow">OCH SEN DÅ?</p><h2 id="afterparty-title">EN HEMLIG ARTIST.</h2><p>Förfest här. Resten av kvällen där.</p></div>
+          <a class="afterparty-link" href="https://www.enhemligartist.se/" target="_blank" rel="noopener noreferrer">Kolla in fortsättningen <span aria-hidden="true">↗</span><span class="sr-only"> (öppnas i ny flik)</span></a>
+        </section>
+      </main>
+
+      <footer><span>EN HEMLIG FÖRFEST · 21.11.2026</span><span>VI SES PÅ ANDRA SIDAN DÖRREN. <span aria-hidden="true">✳</span></span></footer>
+    </div>
+  </body>
+</html>
