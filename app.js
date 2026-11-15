@@ -1,7 +1,7 @@
-import { getCountdown, REVEAL_AT } from './countdown.js?v=20261115-guestlist-4';
-import { RSVP_ENDPOINT } from './rsvp-config.js?v=20261115-guestlist-4';
-import { mountRsvp } from './rsvp.js?v=20261115-guestlist-4';
-import { startGuestList } from './guest-list.js?v=20261115-guestlist-4';
+import { getCountdown, REVEAL_AT } from './countdown.js?v=20261115-guestlist-5';
+import { RSVP_ENDPOINT } from './rsvp-config.js?v=20261115-guestlist-5';
+import { mountRsvp } from './rsvp.js?v=20261115-guestlist-5';
+import { startGuestList } from './guest-list.js?v=20261115-guestlist-5';
 
 try {
   mountRsvp(RSVP_ENDPOINT, document.getElementById('rsvp-container'));
