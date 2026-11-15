@@ -6,21 +6,29 @@ import vm from 'node:vm';
 const source = readFileSync(new URL('../google-apps-script/Code.gs', import.meta.url), 'utf8');
 const requestId = '00000000-0000-4000-8000-000000000001';
 
-function server({ header = 'Namn', unavailable = false, failWrite = false } = {}) {
-  const names = [];
+function server({ header = 'Namn', unavailable = false, failWrite = false, existingNames = [] } = {}) {
+  const names = [...existingNames];
   const receipts = new Map();
   let released = false;
   let flushed = false;
   const sheet = {
-    getRange(row, column) {
+    getRange(row, column, rowCount, columnCount) {
       assert.equal(column, 1);
       if (row === 1) return { getDisplayValue: () => header };
+      if (rowCount !== undefined) {
+        assert.equal(columnCount, 1);
+        return { getDisplayValues: () => names.slice(row - 2, row - 2 + rowCount).map(name => [name]) };
+      }
       return { setRichTextValue(value) { if (failWrite) throw new Error('Write failed'); names[row - 2] = value.text; } };
     },
     getLastRow: () => 1 + names.length,
     getMaxRows: () => 1000,
   };
   const context = vm.createContext({
+    ContentService: {
+      MimeType: { JAVASCRIPT: 'application/javascript', TEXT: 'text/plain' },
+      createTextOutput(body) { return { body, setMimeType(type) { this.type = type; return this; } }; },
+    },
     LockService: { getScriptLock: () => ({ tryLock: () => !unavailable, releaseLock() { released = true; } }) },
     PropertiesService: { getScriptProperties: () => ({ getProperty: key => receipts.get(key) ?? null, setProperty(key, value) { receipts.set(key, value); } }) },
     SpreadsheetApp: {
@@ -33,7 +41,7 @@ function server({ header = 'Namn', unavailable = false, failWrite = false } = {}
     },
   });
   vm.runInContext(source, context);
-  return { register: payload => context.registerGuest(payload), names, receipts, released: () => released, flushed: () => flushed };
+  return { register: payload => context.registerGuest(payload), guests: () => context.guestNames_(), request: parameter => context.doGet({ parameter }), names, receipts, released: () => released, flushed: () => flushed };
 }
 
 test('appends only a literal name to the designated column and confirms after flush', () => {
@@ -89,4 +97,37 @@ test('failed writes do not produce successful receipts and release the lock', ()
   assert.throws(() => app.register({ name: 'Åsa', requestId }));
   assert.equal(app.receipts.size, 0);
   assert.equal(app.released(), true);
+});
+
+test('public guest names skip the header and blank rows and preserve signup order', () => {
+  const app = server({ existingNames: ['Åsa Öberg', '', '  ', 'Alex', 'Alex'] });
+  assert.deepEqual(Array.from(app.guests()), ['Åsa Öberg', 'Alex', 'Alex']);
+  app.register({ name: 'Kim', requestId });
+  assert.deepEqual(Array.from(app.guests()), ['Åsa Öberg', 'Alex', 'Alex', 'Kim']);
+});
+
+test('guest endpoint returns only names as safely quoted, read-only JSONP', () => {
+  const names = ['Åsa', '</script><img src=x onerror=alert(1)>', 'O\'Brien'];
+  const app = server({ existingNames: names });
+  const callback = 'hemligartistGuests_' + 'a'.repeat(32);
+  const response = app.request({ view: 'guests', callback });
+  let received;
+  vm.runInNewContext(response.body, { [callback]: data => { received = data; } });
+  assert.equal(response.type, 'application/javascript');
+  assert.deepEqual(Object.keys(received), ['names']);
+  assert.deepEqual(Array.from(received.names), names);
+  assert.deepEqual(app.names, names);
+  assert.equal(app.receipts.size, 0);
+});
+
+test('guest endpoint rejects executable callback expressions and distinguishes read failure from empty list', () => {
+  const app = server({ header: 'Not the guest list' });
+  const invalid = app.request({ view: 'guests', callback: 'alert(1)//' });
+  assert.equal(invalid.type, 'text/plain');
+  const callback = 'hemligartistGuests_' + 'b'.repeat(32);
+  let received;
+  vm.runInNewContext(app.request({ view: 'guests', callback }).body, { [callback]: data => { received = data; } });
+  assert.equal(typeof received.error, 'string');
+  assert.equal(received.names, undefined);
+  assert.equal(server().guests().length, 0);
 });

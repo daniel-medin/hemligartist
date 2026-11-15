@@ -18,9 +18,11 @@ Detta är en statisk inbjudan: koden finns i JavaScript-källan och klockan anv�
 
 ## Anmälan
 
-Målarket är [en hemlig förfest](https://docs.google.com/spreadsheets/d/12M7fqcwc9KDa0ejhe7au5bBCMhhylnO9cRSxXlxcRLU/edit), fliken `Sheet1`, kolumn A (`Namn`). Apps Script-formuläret skriver enbart namn, en rad per inskickning. Arket behöver inte delas offentligt.
+Målarket är [en hemlig förfest](https://docs.google.com/spreadsheets/d/12M7fqcwc9KDa0ejhe7au5bBCMhhylnO9cRSxXlxcRLU/edit), fliken `Sheet1`, kolumn A (`Namn`). Apps Script-formuläret skriver enbart namn, en rad per inskickning. Arket behöver inte delas offentligt. Den publicerade webbappens adress är konfigurerad i `rsvp-config.js`. Anonym inskickning har verifierats mot Google Sheets den 15 november 2026; testnamnet har tagits bort.
 
-Koden är förberedd i `google-apps-script/Code.gs`. Inskickning är fortfarande inaktiverad tills värden har publicerat Google-webbappen och dess `/exec`-adress har lagts in i `rsvp-config.js`. Se [aktiveringsstegen](google-apps-script/SETUP.md). Google-publicering och verklig inskickning till arket är ännu inte verifierade.
+Längst ned finns ”Coola typer som signat upp sig:”. Listan läser namn från kolumn A i anmälningsordning. Den hämtas vid sidöppning, var 30:e sekund medan fliken är aktiv och efter bekräftad anmälan. Namn renderas som text, inte HTML. Vid läsfel behålls den senaste lyckade listan och ett felmeddelande visas.
+
+För att aktivera gästlistans nya läsfunktion behöver den uppdaterade `google-apps-script/Code.gs` publiceras som en ny version av samma Google-webbapp. Se [aktiveringsstegen](google-apps-script/SETUP.md). Frontend och läsflöde är testade lokalt; publicerad läsning av gästlistan återstår tills den nya Google-versionen är publicerad. Formuläret informerar gästen om att namnet visas på sidan.
 
 ## Form
 

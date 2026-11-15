@@ -78,11 +78,8 @@
         <section class="rsvp" aria-labelledby="rsvp-title">
           <div class="rsvp-intro"><p class="eyebrow">DU + VI = FÖRFEST</p><h2 id="rsvp-title">ANMÄL DIG HÄR.</h2></div>
           <div class="rsvp-container" id="rsvp-container">
-          <form id="rsvp-form" aria-describedby="form-note">
-            <div class="name-field"><label for="guest-name">Namn</label><input id="guest-name" name="name" type="text" autocomplete="name" placeholder="Ditt namn" required maxlength="80"></div>
-            <button type="submit" disabled>Jag kommer <span aria-hidden="true">↗</span></button>
-            <p class="form-note" id="form-note" role="status">Anmälan öppnar snart.</p>
-          </form>
+            <p class="form-note" id="form-note" role="status">Hämtar anmälan…</p>
+            <noscript><p><a href="https://script.google.com/macros/s/AKfycbyTelITmcwdHMtDemAadRSuwfU4go4JM2TEYyP9dsCkNO6C5VgMbeFrwgnwFkwx_Gyo/exec" target="_blank" rel="noopener noreferrer">Öppna anmälan ↗</a></p></noscript>
           </div>
         </section>
 
@@ -96,6 +93,14 @@
           <p class="eyebrow">KVÄLLEN TAR INTE SLUT DÄR.</p>
           <h2 id="secret-afterparty-title">SJÄLVKLART BLIR DET EN HEMLIG EFTERFEST OCKSÅ.</h2>
           <p>När sista låten har tystnat fortsätter vi. Var och hur? Det är hemligt ett tag till.</p>
+        </section>
+
+        <section class="guest-list" aria-labelledby="guest-list-title">
+          <p class="eyebrow">GÄSTLISTAN</p>
+          <h2 id="guest-list-title">Coola typer som signat upp sig:</h2>
+          <ol id="guest-names" class="guest-names" hidden></ol>
+          <p id="guest-list-status" class="guest-list-status" role="status">Hämtar gästlistan…</p>
+          <button id="guest-list-retry" class="guest-list-retry" type="button" hidden>Uppdatera listan <span aria-hidden="true">↗</span></button>
         </section>
       </main>
 

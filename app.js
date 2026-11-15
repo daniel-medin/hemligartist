@@ -1,13 +1,14 @@
 import { getCountdown, REVEAL_AT } from './countdown.js';
 import { RSVP_ENDPOINT } from './rsvp-config.js';
 import { mountRsvp } from './rsvp.js';
+import { startGuestList } from './guest-list.js';
 
-// Keep the pending form from navigating if no web app is deployed yet.
-document.getElementById('rsvp-form').addEventListener('submit', event => event.preventDefault());
 try {
   mountRsvp(RSVP_ENDPOINT, document.getElementById('rsvp-container'));
+  startGuestList(RSVP_ENDPOINT, document.getElementById('guest-names'), document.getElementById('guest-list-status'), document.getElementById('guest-list-retry'));
 } catch (error) {
-  document.getElementById('form-note').textContent = 'Anmälan är tillfälligt stängd. Försök igen senare.';
+  const note = document.getElementById('form-note');
+  if (note) note.textContent = 'Anmälan är tillfälligt stängd. Försök igen senare.';
   console.error(error);
 }
 
