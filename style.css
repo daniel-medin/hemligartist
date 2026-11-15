@@ -9,7 +9,6 @@ a:focus-visible{outline:2px solid var(--red);outline-offset:7px}
 .poster{max-width:1440px;margin:auto;padding:0 64px}
 .masthead{height:100px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
 .wordmark{font-family:var(--display);font-size:32px;text-decoration:none;letter-spacing:-1px;display:flex;gap:8px;align-items:center}
-.asterisk{color:var(--red);font-family:Arial,sans-serif;font-size:35px}
 .masthead-note,.issue,.eyebrow,.emblem-caption,.locked-label,.time-label,.door-note,footer,.calendar-link,.afterparty-link{font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:1.5px}
 .masthead-note{color:var(--muted)}
 .issue{color:var(--red)}
@@ -79,7 +78,7 @@ footer>span:last-child>span{font-size:23px;color:var(--red)}
 :root{--muted:#f5ded9;--line:#f5ded957}
 html{background:#e63749 url("assets/background.jpg") center/cover fixed no-repeat}
 body{background:#1604082e}
-.asterisk,.issue,.invitation>.eyebrow,h1>span,footer>span:last-child>span,.afterparty-symbol{color:var(--paper)}
+.issue,.invitation>.eyebrow,h1>span,footer>span:last-child>span,.afterparty-symbol{color:var(--paper)}
 .status-dot{background:var(--paper)}
 .intro{color:#f8e4de}
 .emblem-grid{opacity:.3}
