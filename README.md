@@ -10,6 +10,8 @@ Sidan är vanlig HTML, CSS och JavaScript utan byggsteg eller externa runtime-be
 
 GitHub Pages serverar roten från grenen `main`. En push uppdaterar sidan automatiskt.
 
+GitHub Pages cachelagrar skript i upp till tio minuter. Vid ändring av HTML, CSS eller JavaScript: uppdatera samma `v=`-version i `index.html`, importerna i `app.js` och importen i `guest-list.js` så att besökare får en sammanhängande version av alla filer.
+
 ## Portkod och tid
 
 Portkoden visas automatiskt den **21 november 2026 kl. 15.00 i Europe/Stockholm**, vilket är **14.00 UTC**. Tiden har explicit UTC-offset, så besökarens tidszon påverkar inte släppet. En öppen sida uppdateras automatiskt. När en vilande flik återaktiveras kontrolleras tiden direkt.

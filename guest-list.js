@@ -1,4 +1,4 @@
-import { getRsvpUrl } from './rsvp.js';
+import { getRsvpUrl } from './rsvp.js?v=20261115-guestlist-2';
 
 function fetchGuestNames(endpoint) {
   return new Promise((resolve, reject) => {
