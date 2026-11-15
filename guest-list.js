@@ -82,7 +82,7 @@ export function startGuestList(endpoint, list, status, retry) {
     try { origin = new URL(event.origin); } catch { return; }
     if (origin.protocol !== 'https:') return;
     const host = origin.hostname;
-    if (host === 'script.google.com' || host === 'script.googleusercontent.com' || host.endsWith('.script.googleusercontent.com')) refresh();
+    if (host === 'script.google.com' || host === 'script.googleusercontent.com' || host.endsWith('.script.googleusercontent.com') || host.endsWith('-script.googleusercontent.com')) refresh();
   });
   status.textContent = 'Hämtar gästlistan…';
   refresh();

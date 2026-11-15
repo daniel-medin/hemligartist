@@ -22,7 +22,7 @@ Målarket är [en hemlig förfest](https://docs.google.com/spreadsheets/d/12M7fq
 
 Längst ned finns ”Coola typer som signat upp sig:”. Listan läser namn från kolumn A i anmälningsordning. Den hämtas vid sidöppning, var 30:e sekund medan fliken är aktiv och efter bekräftad anmälan. Namn renderas som text, inte HTML. Vid läsfel behålls den senaste lyckade listan och ett felmeddelande visas.
 
-För att aktivera gästlistans nya läsfunktion behöver den uppdaterade `google-apps-script/Code.gs` publiceras som en ny version av samma Google-webbapp. Se [aktiveringsstegen](google-apps-script/SETUP.md). Frontend och läsflöde är testade lokalt; publicerad läsning av gästlistan återstår tills den nya Google-versionen är publicerad. Formuläret informerar gästen om att namnet visas på sidan.
+Den uppdaterade Google-webbappen är publicerad. Hela flödet med anonym inskickning, sparning i Google Sheets och omedelbar visning i gästlistan har verifierats mot Google den 15 november 2026. Testnamnen har tagits bort. Formuläret informerar gästen om att namnet visas på sidan. Se [publiceringsstegen](google-apps-script/SETUP.md) vid framtida Google-kodändringar.
 
 ## Form
 

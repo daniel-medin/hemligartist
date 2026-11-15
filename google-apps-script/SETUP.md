@@ -5,10 +5,10 @@ Arket är förberett: `Sheet1`, kolumn A har rubriken **Namn**. Endast namn skri
 ## Uppdatera den befintliga publiceringen med gästlistan
 
 1. Öppna projektets kodredigerare (`<>`) i Apps Script och ersätt hela `Code.gs` med den senaste [Code.gs](Code.gs). Spara.
-2. Välj **Deploy → Manage deployments → anmälan → pennan**.
+2. Välj **Deploy → Manage deployments**, välj webbappen vars adress används i `rsvp-config.js` och klicka på **pennan**.
 3. Välj **Version → New version**, **Execute as → Me** och **Who has access → Anyone**. Klicka **Deploy**. Samma `/exec`-adress kan behållas.
 
-Den befintliga anmälan är verifierad mot Google Sheets. Den nya läsfunktionen för gästlistan kräver denna koduppdatering innan den fungerar. Listan hämtar bara namnen i `Sheet1!A2:A`, aldrig andra kolumner eller skriptets privata kvitton. Förfrågningar med `view=guests` är skrivfria.
+Anmälan och läsfunktionen för gästlistan är publicerade och verifierade mot Google Sheets. Listan hämtar bara namnen i `Sheet1!A2:A`, aldrig andra kolumner eller skriptets privata kvitton. Förfrågningar med `view=guests` är skrivfria.
 
 ## Första publicering
 
@@ -19,7 +19,7 @@ Den befintliga anmälan är verifierad mot Google Sheets. Den nya läsfunktionen
 
 När adressen är konfigurerad ersätter webbplatsen det inaktiva formuläret med Googles inbäddade formulär. Skriptet körs med värdens rättigheter. Gäster får inte redigeringsåtkomst till kalkylarket; den publika läsfunktionen lämnar endast ut namn. Inga Google-nycklar läggs i den publika webbplatsen. En lyckad bekräftelse visas först när Google Sheets har bekräftat skrivningen.
 
-Verifiera efter publicering genom att skicka ett tydligt testnamn från den publika sidan och kontrollera att det syns i både arket och gästlistan. Ta sedan bort testnamnet. Anonym inskickning har verifierats den 15 november 2026. Läsning av gästlistan behöver verifieras efter att den uppdaterade Google-versionen är publicerad.
+Verifiera efter publicering genom att skicka ett tydligt testnamn från den publika sidan och kontrollera att det syns i både arket och gästlistan. Ta sedan bort testnamnet. Anonym inskickning, sparning och omedelbar uppdatering av gästlistan har verifierats den 15 november 2026. Testnamnen är borttagna.
 
 Skriptet använder lås för samtidiga inskickningar och sparar ett privat kvitto per inskickning för att undvika dubbla rader vid omförsök efter nätverksfel. Två olika gäster kan ha samma namn. Kvittot lagras i Apps Scripts skriptegenskaper, inte som en extra kolumn i gästlistan.
 
